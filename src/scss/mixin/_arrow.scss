@@ -1,0 +1,4 @@
+@mixin arrow($color:#ccc,$direction:top,$width:5px){
+    border:transparent solid $width;
+    border-#{$direction}-color: $color;
+}

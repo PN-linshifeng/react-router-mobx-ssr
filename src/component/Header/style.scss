@@ -1,0 +1,37 @@
+.header{
+	height:100px;
+    border-bottom: 2px solid #1d31bc;
+	.logo{
+    	line-height:100px;
+    	float:left;
+    	img{
+    		vertical-align: middle;
+    	}
+    }
+    .nav{
+
+    	ul{
+    		float:right;
+    		margin-top: 35px;
+    		li{
+    			float:left;
+    			a{
+    				display: inline-block;
+    				padding:0px 20px;
+    				height:65px;
+    				line-height:65px;
+    				text-align: center;
+    				font-size:18px;
+                    // margin:0px -10px;
+    				color:#000;
+                    border-radius:10px 10px 0 0;
+    				&.active{
+    					color:#fff;
+    					background:url(../../static/images/nav-bg-hover.png) no-repeat 0 0;
+    				}
+    			}
+    		}
+    	}
+    }
+
+}

@@ -1,0 +1,22 @@
+@mixin keysframe($name){
+    @-webkit-keyframes  #{$name}{
+        $browser: '-webkit-' !global;
+        @content;
+    }
+    @-moz-keyframes  #{$name}{
+        $browser: '-moz-' !global;
+        @content;
+    }
+    @-ms-keyframes  #{$name}{
+        $browser: '-ms-' !global;
+        @content;
+    }
+    @-o-keyframes  #{$name}{
+        $browser: '-o-' !global;
+        @content;
+    }
+    @keyframes  #{$name}{
+        $browser: '' !global;
+        @content;
+    }
+} $browser: null;

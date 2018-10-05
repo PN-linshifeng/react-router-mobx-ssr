@@ -1,0 +1,212 @@
+$linkColor		:#2d4ed9;
+$color			:#000;
+$borderColor:#363636;
+img{
+  border:0px;
+  max-width:100%;
+}
+
+.dis-none,.disn{
+    display:none !important;
+}
+
+.container-fluid{
+    width:100%;
+    margin: 0 auto; 
+}
+.container{
+   max-width:1100px;
+   width:1100px;
+   margin: 0 auto; 
+   padding:0px 0px;
+   @include media($max-width: 1150px){
+    padding:0px 10px;
+   }
+}
+.row{
+	margin-left: -5px;
+	margin-right: -5px;
+}
+
+.pull-left{
+    float: left;
+}
+.pull-right{
+    float:right;
+}
+.txt-left{
+  text-align:left;
+}
+.txt-center{
+  text-align:center;
+}
+.txt-right{
+  text-align:right;
+}
+*,*:before,*:after{
+	box-sizing:border-box;
+}
+.clearfix{
+  &:before,
+  &:after {
+    content: ""; 
+    display: table; 
+    font: 0/0 a;
+    width:100%;
+  }
+  &:after {
+    clear: both;
+  }
+}
+a{
+	color:$linkColor;
+	transition:all 0.3s ease;
+	&:hover{
+		color:darken($linkColor,12%);
+	}
+}
+.margin-block{
+  margin-bottom:80px;
+  @include phoneVertical{
+    margin-bottom:40px;
+  }
+}
+.margin-block-min{
+  margin-bottom:15px;
+}
+.margin-block-mid{
+  margin-bottom:30px;
+}
+.margin-block-max{
+  margin-bottom:60px;
+}
+@include phoneVertical{
+  .margin-block-min{
+    margin-bottom:7px;
+  }
+  .margin-block-mid{
+    margin-bottom:15px;
+  }
+  .margin-block-max{
+    margin-bottom:30px;
+  }
+}
+.bfc{
+  overflow:hidden;
+  .f-l{
+    float:left;
+    margin-right:10px;
+  }
+  .f-r{
+    overflow:hidden;
+  }
+}
+.btn-gridient{
+  outline:none;
+	display: inline-block;
+	text-align: center;
+  border-radius:30px;
+  min-width:250px;
+  padding:0px 30px;
+  height:40px;
+  line-height:40px;
+  font-size:16px;
+  color:#fff;
+  background-color: #432aaa;
+	background-image: linear-gradient(to right, #0f98f5 0%,#0b3fcf 70%,#535bf3 100%);
+  transition:all 0.3s linear;
+  position: relative;
+  font-family:arial,'microsoft yahei','微软雅黑';
+  &.has-shadow:before{
+    position: absolute;
+    top:50%;
+    left:50%;
+    z-index:-1;
+    content:'';
+    display:block;
+    height:63px;
+    max-width:300px;
+    width:110%;
+    // background:url(../images/btn-shadow.png) no-repeat center top;
+    background-size: 100% 100%;
+    opacity: 0.8;
+    transition:all 0.3s linear;
+    transform:translateX(-50%);
+  }
+  &:hover{
+    background-image: linear-gradient(to right, #0f98f5 0%,#0b3fcf 80%,#535bf3 105%);
+    color:darken(#fff,20%);
+    &.has-shadow:before{
+      opacity: 1;
+    }
+  }
+  &[disabled]{
+    cursor:no-drop;
+    background:#adabaa;
+    color:#dedddd;
+    &.has-shadow:before{
+      display:none;
+    }
+  }
+  @include phoneVertical{
+    @include button-size(140px,50px,20px,44px,25px);
+    span:before{
+      margin-right:5px;
+      margin-bottom:-0px;
+      @include arrow(#000,left,5px);
+    }
+    &.has-shadow:before{
+      height:40px;
+    }
+  }
+}
+
+.btn{
+  outline:none;
+  display: inline-block;
+  text-align: center;
+  @include button-size(120px,40px,16px,40px,5px);
+  @include button-variant(#fff,#a01b41,#a01b41);
+  &.btn-default{
+    @include button-variant(#fff,$color,$color);
+  }
+  &.btn-primary{
+    @include button-variant(#fff,#038b00,#038b00);
+  }
+  &.btn-disabled{
+    @include button-variant(#999,#333,#333);
+    cursor: not-allowed;
+  }
+}
+
+.btn-jin-bn{
+  outline:none;
+  display: inline-block;
+  text-align: center;
+  border-radius:30px;
+  width:220px;
+  height:45px;
+  line-height:40px;
+  font-size:18px;
+  color:#fff;
+  font-weight:600;
+  border:none;
+  padding:4px;
+  background:#826843;
+  background-image: linear-gradient( 3deg, #715532 0%, #caaa76 80%, #9d734a 100%);
+  span{
+    display:inline-block;
+    width:100%;
+    height:100%;
+    border-radius: 20px;
+    background:#826843;
+    background-image: linear-gradient( 29deg, rgb(130,104,67) 0%, rgb(181,142,99) 100%);
+  }
+  &[disabled]{
+    background:#999;
+    span{
+      background:#999;
+      color:#ccc;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@mixin media($min-width: 320px,$max-width: 1920px){
+    @media screen and (min-width: $min-width) and (max-width: $max-width){
+        @content;
+    }
+}
+@mixin phone($min-width: 320px,$max-width: 763px){
+    @media screen and (min-width: $min-width) and (max-width: $max-width){
+        @content;
+    }
+}
+@mixin ipad($min-width: 320px,$max-width: 768px){
+    @media screen and (min-width: $min-width) and (max-width: $max-width){
+        @content;
+    }
+}
+@mixin phoneVertical($min-width: 320px,$max-width: 577px){
+    @media screen and (min-width: $min-width) and (max-width: $max-width){
+        @content;
+    }
+}
