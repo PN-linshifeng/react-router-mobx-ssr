@@ -7,12 +7,20 @@ var CleanWebpackPlugin = require('clean-webpack-plugin'); //清理文件夹
 
 module.exports = {
 	// mode: 'development', //development production
-	devtool: 'source-map', //'inline-source-map', //这有助于解释说明我们的目的（仅解释说明，不要用于生产环境）
-	entry: ['./src/index.js'],
+	devtool: 'inline-source-map', //'inline-source-map', //这有助于解释说明我们的目的（仅解释说明，不要用于生产环境）
+	entry: {
+		vendor: [
+			'react',
+			'react-dom',
+			'react-router-dom'
+		],
+
+		app: ['react-hot-loader/patch', './src/index.js']
+	},
 	output: {
 		filename: 'js/[name].bundle.js',
 		path: path.resolve(__dirname, '../dist'),
-		publicPath: "/"
+		publicPath: "/public"
 	},
 	module: {
 		rules: [
@@ -116,16 +124,18 @@ module.exports = {
 
 	},
 	devServer: {
-		contentBase: path.join(__dirname, "../dist"), //跟入口的path相同
-		publicPath: '/', //跟入口相同
+		contentBase: path.join(__dirname, "../dist"), //告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要。devServer.publicPath 将用于确定应该从哪里提供 bundle，并且此选项优先 。跟入口的path相同
+		publicPath: '/public', //打包文件目录，跟output.publicPath相同
 		compress: true, //是否gzip压缩
 		port: 8001,
 		open: true,
-		historyApiFallback: true, //不跳转
-		hot: true // 使用热加载插件 HotModuleReplacementPlugin
-		ovrylay: {
-			errors: true
-		}
+		historyApiFallback: {
+			index: '/public/index.html'
+		},
+		hot: true, // 使用热加载插件 HotModuleReplacementPlugin
+		// ovrylay: {
+		// errors: true
+		// }
 	},
 	plugins: [
 		//清理文件夹

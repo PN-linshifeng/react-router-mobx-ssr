@@ -4,7 +4,7 @@ class Footer extends React.Component{
 	render(){
 		return(
 			<div className="sss">
-				99999999999
+				404 403
 			</div>
 		)
 	}

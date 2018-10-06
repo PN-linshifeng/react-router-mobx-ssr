@@ -1,5 +1,5 @@
 const path = require("path");
-var webpack = require('webpack');
+// var webpack = require('webpack');
 // var HtmlWebpackPlugin = require('html-webpack-plugin'); //server 不需要生成HTML文件
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var SpritesmithPlugin = require('webpack-spritesmith'); //生成雪碧图
@@ -8,7 +8,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin'); //清理文件夹
 module.exports = {
 	target: 'node',
 	// mode: 'development', //development production
-	devtool: 'source-map', //'inline-source-map', //这有助于解释说明我们的目的（仅解释说明，不要用于生产环境）
+	// devtool: 'source-map', //'inline-source-map', //这有助于解释说明我们的目的（仅解释说明，不要用于生产环境）
 	entry: {
 		app: './src/server.js'
 	},
@@ -111,22 +111,10 @@ module.exports = {
 		},
 
 	},
-	// devServer: {
-	// 	contentBase: path.join(__dirname, "dist"),
-	// 	compress: true, //是否gzip压缩
-	// 	port: 8001,
-	// 	open: true,
-	// 	historyApiFallback: true, //不跳转
-	// 	hot: true // 使用热加载插件 HotModuleReplacementPlugin
-	// },
+
 	plugins: [
-		//清理文件夹
-		// new CleanWebpackPlugin(['../dist']),
-		//server 不需要生成HTML文件
-		// new HtmlWebpackPlugin({
-		// 	template: "./src/index.html",
-		// }),
-		new webpack.HotModuleReplacementPlugin(), // 启用 HMR
+
+		// new webpack.HotModuleReplacementPlugin(), // 启用 HMR
 
 		// 提取css样式插件
 		new MiniCssExtractPlugin({

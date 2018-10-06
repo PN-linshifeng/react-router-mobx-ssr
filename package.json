@@ -9,6 +9,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-helmet": "^5.2.0",
+    "react-hot-loader": "^4.3.11",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "swiper": "^4.4.1"
@@ -46,7 +47,6 @@
     "build:server": "webpack --mode production --config build/webpack.config.server.js",
     "build": "npm run clear && npm run build:client && npm run build:server",
     "nodeServer": "node server/server.js",
-
     "dev": "webpack --mode development ./build/webpack.config.js",
     "clear": "rimraf dist",
     "watch": "webpack --watch",
