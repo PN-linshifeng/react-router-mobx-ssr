@@ -4,6 +4,16 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
     "express": "^4.16.3",
     "jquery": "^1.11.3",
     "react": "^16.5.2",
@@ -23,7 +33,9 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
+    "eslint": "^5.6.1",
     "expose-loader": "^0.7.5",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
@@ -40,6 +52,7 @@
     "webpack": "^4.5.0",
     "webpack-cli": "^2.0.14",
     "webpack-dev-server": "^3.1.1",
+    "webpack-merge": "^4.1.4",
     "webpack-spritesmith": "^0.4.1"
   },
   "scripts": {
@@ -51,7 +64,7 @@
     "clear": "rimraf dist",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --host 192.168.2.38 --open --mode development",
-    "s": "webpack-dev-server --host 192.168.2.38 --open --mode development --config build/webpack.config.js",
+    "startWeb": "cross-env NODE_ENV=development webpack-dev-server --host 192.168.2.38 --open --mode development --config build/webpack.config.dev.js",
     "server": "webpack-dev-server"
   },
   "author": "",
