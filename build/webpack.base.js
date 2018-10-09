@@ -14,12 +14,16 @@ module.exports = {
     rules: [
       //js  编译之前先检测
       {
-        enforce: 'pre',
         test: /.(js|jsx)$/,
-        loader: 'eslint-loader',
-        exclude: [
-          path.resolve(__dirname, '../node_modules')
-        ]
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            formatter: require('eslint-friendly-formatter') // 默认的错误提示方式
+          }
+        },
+        enforce: 'pre', // 编译前检查
+        exclude: path.resolve(__dirname, '../node_modules'), // 不检测的文件
+        include: path.resolve(__dirname, '../src'), // 要检查的目录
       },
       // 样式
       {

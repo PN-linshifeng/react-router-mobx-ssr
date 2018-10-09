@@ -1,23 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 // import {
 //   BrowserRouter
 // } from "react-router-dom";
-import {
-  AppContainer
-} from "react-hot-loader";
+import {AppContainer} from 'react-hot-loader';
 // import RouterMap from './router/routerMap.js'
 // import './scss/style.scss'
-import Home from "@container/404";
+import Home from '@container/404';
 
 // ReactDOM.render(<Home />, document.getElementById("zhiku"));
 
-const render = Component => {
+const render = (Container) => {
   ReactDOM.hydrate(
     <AppContainer>
-			<Component />
-		</AppContainer>,
-    document.getElementById("zhiku")
+      <Container />
+    </AppContainer>,
+    document.getElementById('zhiku'),
   )
 };
 render(Home)
