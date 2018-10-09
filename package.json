@@ -66,7 +66,7 @@
     "clear": "rimraf dist",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --host 192.168.2.38 --open --mode development",
-    "startWeb": "cross-env NODE_ENV=development webpack-dev-server --host 192.168.2.38 --open --mode development --config build/webpack.config.dev.js",
+    "startWeb": "cross-env NODE_ENV=development webpack-dev-server --open --mode development --config build/webpack.config.dev.js",
     "server": "webpack-dev-server",
     "lint": "eslint --fix --ext .jsx src"
   },
