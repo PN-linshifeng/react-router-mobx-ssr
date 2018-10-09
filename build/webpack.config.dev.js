@@ -18,13 +18,15 @@ module.exports = merge(baseConfig, {
 		compress: true, //是否gzip压缩
 		port: 8001,
 		open: true,
+    host: '0.0.0.0',
 		historyApiFallback: {
 			index: '/public/index.html'
 		},
 		hot: true, // 使用热加载插件 HotModuleReplacementPlugin
-		// ovrylay: {
-		// errors: true
-		// }
+		overlay: {
+      warnings: true,
+      errors: true
+    }
 	},
 
 	plugins: [

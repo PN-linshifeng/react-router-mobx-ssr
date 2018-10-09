@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
 // import {
 //   BrowserRouter
@@ -10,8 +10,8 @@ import Home from '@container/404';
 
 // ReactDOM.render(<Home />, document.getElementById("zhiku"));
 
-const render = (Container) => {
-  ReactDOM.hydrate(
+const render = (Container)=>{
+  ReactDOM.render(
     <AppContainer>
       <Container />
     </AppContainer>,
