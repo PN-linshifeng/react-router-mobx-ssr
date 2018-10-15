@@ -1,8 +1,8 @@
 {
   "presets": [
-    ["es2015", {"loose":true}],
-    "react" // 转译React组件为JS代码
-    
+    ["es2015", { "loose": true }],
+    "stage-2",
+    "react"
   ],
-  "plugins":["react-hot-loader/babel"]
+  "plugins": ["transform-decorators-legacy", "react-hot-loader/babel"]
 }

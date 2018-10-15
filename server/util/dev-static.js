@@ -18,6 +18,7 @@ const getTemplate = () => {
       })
   })
 }
+
 let serverBundle;
 const serverCompiler = webpack(serverConfig);
 const mfs = new MemoryFs;

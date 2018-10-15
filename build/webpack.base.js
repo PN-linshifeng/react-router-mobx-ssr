@@ -79,10 +79,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['es2015']
-          }
+          loader: 'babel-loader'
         },
         exclude: /node_modules/
       },
@@ -114,6 +111,7 @@ module.exports = {
       "@component": path.resolve("src/component"),
       "@container": path.resolve("src/container"),
       "@images": path.resolve("src/static/images"),
+      "@config": path.resolve("src/config"),
     },
 
   },
