@@ -19,7 +19,7 @@ const getTemplate = () => {
   })
 }
 
-let serverBundle;
+let serverBundle, createStoreMap;
 const serverCompiler = webpack(serverConfig);
 const mfs = new MemoryFs;
 const Module = module.constructor;
@@ -42,7 +42,7 @@ serverCompiler.watch({}, (err, stats) => {
   const m = new Module();
   m._compile(bundle, 'server.js'); //用module解析bundle string内容
   serverBundle = m.exports.default;
-
+  createStoreMap = m.exports.createStoreMap;
 });
 module.exports = function(app) {
   app.use('/public', proxy({
@@ -51,10 +51,17 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     // res.send("888");
     getTemplate().then(template => {
-      const content = ReactDomServer.renderToString(serverBundle);
-      let html = template.replace(/<!-- app -->/gm, content);
-      // console.log(content);
-      // res.send("888");
+      const routerContext = {};
+      const app = serverBundle(createStoreMap(), routerContext, req.url)
+        // const content = ReactDomServer.renderToString(serverBundle);
+      const content = ReactDomServer.renderToString(app);
+      //服务端路由跳转
+      if (routerContext.url) {
+        res.status(302).setHeader("Location", routerContext.url);
+        res.end();
+        return;
+      }
+
       res.send(template.replace(/<!-- app -->/gm, content));
     })
   })

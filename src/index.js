@@ -11,13 +11,13 @@ import {
 } from 'mobx-react';
 import App from '@container/App';
 //store
-import appState from './store/appState';
+import AppState from './store/appState';
 
 
 const render = (Container) => {
   ReactDOM.render(
     <AppContainer>
-      <Provider appState={appState}>
+      <Provider appState={new AppState()}>
         <BrowserRouter>
           <Container />
         </BrowserRouter>
