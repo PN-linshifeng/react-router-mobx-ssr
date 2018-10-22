@@ -2,9 +2,10 @@ const axios = require('axios'); //http请求工具
 const webpack = require('webpack');
 const path = require('path');
 const MemoryFs = require('memory-fs');
-const serverConfig = require('../../build/webpack.config.server');
 const ReactDomServer = require('react-dom/server');
 const proxy = require('http-proxy-middleware');
+const Helmet = require('react-helmet').defaultt;
+const serverConfig = require('../../build/webpack.config.server');
 
 const getTemplate = () => {
   return new Promise((resolve, reject) => {
@@ -53,7 +54,7 @@ module.exports = function(app) {
     getTemplate().then(template => {
       const routerContext = {};
       const app = serverBundle(createStoreMap(), routerContext, req.url)
-        // const content = ReactDomServer.renderToString(serverBundle);
+      // const content = ReactDomServer.renderToString(serverBundle);
       const content = ReactDomServer.renderToString(app);
       //服务端路由跳转
       if (routerContext.url) {
