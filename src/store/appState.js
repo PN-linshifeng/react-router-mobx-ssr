@@ -6,8 +6,12 @@ import {
 } from 'mobx';
 
 export default class AppState {
-  @observable count = 0;
-  @observable name = "pn";
+  constructor({ count, name } = { count: 0, name: 'pn' }) {
+    this.count = count;
+    this.name = name;
+  }
+  @observable count;
+  @observable name;
   @computed get msg() {
     return `${this.name} say count is ${this.count}`
   }
@@ -16,6 +20,36 @@ export default class AppState {
   }
   @action reName(name) {
     this.name = name
+  }
+
+  //用于服务端渲染生成前后端同构数据
+  toJson() {
+    return {
+      count: this.count,
+      name: this.name
+    }
+  }
+}
+
+export class AppState2 {
+  @observable counts = 0;
+  @observable name = "pn";
+  @computed get msg() {
+    return `${this.name} say count is ${this.counts}`
+  }
+  @action add() {
+    this.counts += 1;
+  }
+  @action reName(name) {
+    this.name = name
+  }
+
+  //用于服务端渲染生成前后端同构数据
+  toJson() {
+    return {
+      count: this.counts,
+      name: this.name
+    }
   }
 }
 

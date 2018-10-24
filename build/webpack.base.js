@@ -120,7 +120,11 @@ module.exports = {
     // new CleanWebpackPlugin(['dist']),
     //生成HTML
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: path.join(__dirname, "../src/index.html"),
+    }),
+    new HtmlWebpackPlugin({
+      template: "!!ejs-compiled-loader!" + path.join(__dirname, "../src/server.ejs"),
+      filename: 'server.ejs'
     }),
     // new webpack.HotModuleReplacementPlugin(), // 启用 HMR
 

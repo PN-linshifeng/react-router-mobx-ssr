@@ -11,13 +11,15 @@ import {
 } from 'mobx-react';
 import App from '@container/App';
 //store
-import AppState from './store/appState';
+import AppStatess from './store/store';
 
-
+const initialState = window.__INITIAL__STATE__ || {};
+let appInit = AppStatess(initialState)
+console.log(appInit)
 const render = (Container) => {
-  ReactDOM.render(
+  ReactDOM.hydrate(
     <AppContainer>
-      <Provider appState={new AppState()}>
+      <Provider {...appInit}>
         <BrowserRouter>
           <Container />
         </BrowserRouter>
@@ -29,7 +31,6 @@ const render = (Container) => {
 render(App)
 if (module.hot) {
   module.hot.accept('./container/App', () => {
-    // console.log(8585)
     const NextApp = require('./container/App').default;
     render(NextApp)
   })

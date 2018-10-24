@@ -3,9 +3,8 @@ const webpack = require('webpack');
 const path = require("path");
 const baseConfig = require('./webpack.base.js');
 
-
 module.exports = merge(baseConfig, {
-  mode: 'development',
+  // mode: 'development',
   devtool: 'inline-source-map',
   entry: {
     app: ['react-hot-loader/patch', './src/index.js']
