@@ -13,7 +13,7 @@ module.exports = merge(baseConfig, {
   entry: {
     app: './src/server.js'
   },
-  // externals: ['jquery', 'axios', 'react'],
+  externals: ['react-helmet'],
   output: {
     filename: 'server.js',
     path: path.resolve(__dirname, '../dist'),
