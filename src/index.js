@@ -9,10 +9,11 @@ import {
 import {
   Provider
 } from 'mobx-react';
-import App from '@container/App';
+import App from '@pages/App';
 //store
 import AppStatess from './store/store';
 
+const zhiku = document.getElementById('zhiku');
 const initialState = window.__INITIAL__STATE__ || {};
 let appInit = AppStatess(initialState)
 console.log(appInit)
@@ -25,13 +26,13 @@ const render = (Container) => {
         </BrowserRouter>
       </Provider>
     </AppContainer>,
-    document.getElementById('zhiku'),
+    zhiku
   )
 };
 render(App)
 if (module.hot) {
-  module.hot.accept('./container/App', () => {
-    const NextApp = require('./container/App').default;
+  module.hot.accept('./pages/App', () => {
+    const NextApp = require('./pages/App').default;
     render(NextApp)
   })
 }

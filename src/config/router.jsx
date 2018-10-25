@@ -3,8 +3,8 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import Home from '@container/Home';
-import NotFound from '@container/404';
+import Home from '@pages/Home';
+import NotFound from '@pages/404';
 
 export default () => [
   <Route path="/" component={Home} key="home" exact />,

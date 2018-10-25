@@ -21,7 +21,9 @@
     "react-hot-loader": "^4.3.11",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "swiper": "^4.4.1"
+    "swiper": "^4.4.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -71,17 +73,16 @@
     "webpack-spritesmith": "^0.4.1"
   },
   "scripts": {
-    "build:client": "webpack --mode production --config build/webpack.config.client.js",
-    "build:server": "webpack --mode production --config build/webpack.config.server.js",
+    "build:client": "cross-env NODE_ENV=production && webpack --mode production --config build/webpack.config.client.js",
+    "build:server": "cross-env NODE_ENV=production && webpack --mode production --config build/webpack.config.server.js",
     "build": "npm run clear && npm run build:client && npm run build:server",
-    "dev:client": "cross-env NODE_ENV=development webpack-dev-server --open --mode development --config build/webpack.config.dev.js",
+    "dev:client": "cross-env NODE_ENV=development webpack-dev-server --open --config build/webpack.config.client.js",
     "dev:server": "cross-env NODE_ENV=development nodemon server/server.js",
     "dev": "webpack --mode development ./build/webpack.config.js",
     "clear": "rimraf dist",
-    "watch": "webpack --watch",
     "start": "webpack-dev-server --host 192.168.2.38 --open --mode development",
+    "server": "cross-env NODE_ENV=production node server/server.js",
     "startWeb": "cross-env NODE_ENV=development webpack-dev-server --open --mode development --config build/webpack.config.dev.js",
-    "server": "webpack-dev-server",
     "lint": "eslint --fix --ext .jsx src"
   },
   "author": "",

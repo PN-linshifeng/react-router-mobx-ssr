@@ -6,7 +6,7 @@ import {
   Provider,
   useStaticRendering
 } from "mobx-react";
-import App from '@container/App';
+import App from '@pages/App';
 import {
   createStoreMap
 } from "./store/store"

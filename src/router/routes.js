@@ -1,6 +1,6 @@
 //页面
-import Home from "@container/404"
-// import MarketCommentary from "@container/MarketCommentary"
+import Home from "@pages/404"
+// import MarketCommentary from "@pages/MarketCommentary"
 // import NoPage from "../container/404/index.jsx";
 
 const routes = [{

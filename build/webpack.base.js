@@ -1,9 +1,10 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin'); //生成HTML文件
+// const HtmlWebpackPlugin = require('html-webpack-plugin'); //生成HTML文件
 var MiniCssExtractPlugin = require("mini-css-extract-plugin"); //css
-const SpritesmithPlugin = require('webpack-spritesmith'); //生成雪碧图
-const CleanWebpackPlugin = require('clean-webpack-plugin'); //清理文件夹
+// const SpritesmithPlugin = require('webpack-spritesmith'); //生成雪碧图
+// const CleanWebpackPlugin = require('clean-webpack-plugin'); //清理文件夹
 const devMode = process.env.NODE_ENV !== 'production';
+
 
 module.exports = {
   output: {
@@ -109,29 +110,10 @@ module.exports = {
     alias: {
       "@src": path.resolve("src"),
       "@component": path.resolve("src/component"),
-      "@container": path.resolve("src/container"),
+      "@pages": path.resolve("src/pages"),
       "@images": path.resolve("src/static/images"),
       "@config": path.resolve("src/config"),
     },
 
-  },
-  plugins: [
-    //清理文件夹
-    // new CleanWebpackPlugin(['dist']),
-    //生成HTML
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, "../src/index.html"),
-    }),
-    new HtmlWebpackPlugin({
-      template: "!!ejs-compiled-loader!" + path.join(__dirname, "../src/server.ejs"),
-      filename: 'server.ejs'
-    }),
-    // new webpack.HotModuleReplacementPlugin(), // 启用 HMR
-
-    //提取css样式插件
-    new MiniCssExtractPlugin({
-      filename: devMode ? "[name].css" : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
-    })
-  ],
+  }
 };

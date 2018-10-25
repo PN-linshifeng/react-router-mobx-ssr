@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const path = require("path");
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // var webpack = require('webpack');
 // var HtmlWebpackPlugin = require('html-webpack-plugin'); //server 不需要生成HTML文件
 // var MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -19,6 +20,17 @@ module.exports = merge(baseConfig, {
     path: path.resolve(__dirname, '../dist'),
     publicPath: "",
     libraryTarget: 'commonjs2'
-  }
+  },
+  //压缩js
+  // optimization: {
+ //   minimizer: [
+ //     new UglifyJsPlugin({
+ //       uglifyOptions: {
+ //         compress: false
+ //       }
+ //     })
+ //   ]
+ // },
+
 });
 console.log("444")

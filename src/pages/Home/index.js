@@ -24,7 +24,7 @@ class Home extends React.Component {
       setTimeout(() => {
         appState.count = 100;
         resolve(true)
-      }, 1000)
+      })
     })
   }
 
