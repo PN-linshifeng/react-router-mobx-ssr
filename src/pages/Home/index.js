@@ -9,6 +9,7 @@ import Helmet from 'react-helmet';
 @inject("appState") @observer
 class Home extends React.Component {
   componentDidMount() {
+    console.log("abc")
     // console.warn(s)
   }
 

@@ -34,10 +34,10 @@ module.exports = (bundle, template, req, res) => {
       const html = ejs.render(template, {
         app: content,
         initialState: initialState,
-        meta: '',
+        meta: helmet.meta.toString(),
         title: helmet.title.toString(),
-        link: 'link',
-        style: 'style'
+        link: helmet.link.toString(),
+        style: helmet.style.toString()
       });
       res.send(html)
       resolve()

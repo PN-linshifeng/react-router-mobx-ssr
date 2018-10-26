@@ -8,11 +8,16 @@
   <link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet" />
   <link href="https://utatti.github.io/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" />
   <script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>
+  <%%- meta%>
   <%%- title%>
+  <%%- link%>
+  <%%- style%>
 </head>
 
 <body style=" margin: 0px; padding: 0px;">
-  <div id="zhiku"><%%- app%></div>
+  <div id="zhiku">
+    <%%- app%>
+  </div>
   <script type="text/javascript">
   window.__INITIAL__STATE__ = <%%- initialState%>;
 

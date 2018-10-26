@@ -34,7 +34,13 @@ let config = merge(baseConfig, {
     }),
     new HtmlWebpackPlugin({
       template: "!!ejs-compiled-loader!" + path.join(__dirname, "../src/server.ejs"),
-      filename: 'server.ejs'
+      filename: 'server.ejs',
+      minify: {
+        collapseWhitespace: true,
+        collapseInlineTagWhitespace: true,
+        removeAttributeQuotes: true,
+        trimCustomFragments: true
+      }
     }),
     // new webpack.HotModuleReplacementPlugin(), // 启用 HMR
 
@@ -49,7 +55,8 @@ let config = merge(baseConfig, {
     minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
-          compress: false
+          compress: false,
+          maxLineLength: 500
         }
       })
     ]
