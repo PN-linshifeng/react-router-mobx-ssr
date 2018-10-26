@@ -1,7 +1,7 @@
 {
-  "name": "v4",
+  "name": "reactSSR",
   "version": "1.0.0",
-  "description": "",
+  "description": "react SSR, react16, react-rouder, axios",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.18.0",

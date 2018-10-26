@@ -1,14 +1,14 @@
-import AppStateClass, { AppState2 } from './appState';
+import AppStateClass from './appState';
+import NewsStore from './newsStore';
 // import  from './appState';
 
 export const AppState = AppStateClass;
-export const AppCopy = AppState2
 
 
 const AppStatess = (init = {}) => {
   return {
     appState: new AppState(init.appState),
-    appCopy: new AppCopy(init.appCopy)
+    newsStore: new NewsStore(init.newsStore)
   }
 }
 export default AppStatess
@@ -16,6 +16,6 @@ export default AppStatess
 export const createStoreMap = () => {
   return {
     appState: new AppState(),
-    AppCopy: new AppCopy()
+    newsStore: new NewsStore()
   }
 }

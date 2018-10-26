@@ -13,7 +13,7 @@ const getStoreState = (stores) => {
 module.exports = (bundle, template, req, res) => {
   return new Promise((resolve, reject) => {
     const createStoreMap = bundle.createStoreMap;
-    console.log(createStoreMap)
+    // console.log(createStoreMap)
     const serverBundle = bundle.default;
     const routerContext = {};
     const store = createStoreMap();

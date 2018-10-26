@@ -17,6 +17,7 @@ const zhiku = document.getElementById('zhiku');
 const initialState = window.__INITIAL__STATE__ || {};
 let appInit = AppStatess(initialState)
 console.log(appInit)
+
 const render = (Container) => {
   ReactDOM.hydrate(
     <AppContainer>

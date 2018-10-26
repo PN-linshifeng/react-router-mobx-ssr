@@ -24,30 +24,10 @@ export default class AppState {
 
   //用于服务端渲染生成前后端同构数据
   toJson() {
+    console.log("toJson")
+    console.log(this.count)
     return {
       count: this.count,
-      name: this.name
-    }
-  }
-}
-
-export class AppState2 {
-  @observable counts = 0;
-  @observable name = "pn";
-  @computed get msg() {
-    return `${this.name} say count is ${this.counts}`
-  }
-  @action add() {
-    this.counts += 1;
-  }
-  @action reName(name) {
-    this.name = name
-  }
-
-  //用于服务端渲染生成前后端同构数据
-  toJson() {
-    return {
-      count: this.counts,
       name: this.name
     }
   }
