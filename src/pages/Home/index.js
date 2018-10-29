@@ -63,7 +63,7 @@ class Home extends React.Component {
         智库28---
         <input type="text" onChange={this.change} />
         {appState.msg}
-        <p>{newsStore.news}</p>
+        <p>{JSON.stringify(newsStore.news)}</p>
       </div>
     )
   }

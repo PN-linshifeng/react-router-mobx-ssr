@@ -25,11 +25,10 @@ class NewsStore {
     return `ssss`
   }
 
-  @action queryNews({ jsoncallback = 'news', isTc = false, cat = 38, ln = 'zh-cn', num = 1, onDate = '', endDate = '', keywords = '' } = {}) {
+  @action queryNews({ isTc = false, cat = 38, ln = 'zh-cn', num = 1, onDate = '', endDate = '', keywords = '' } = {}) {
     // jsoncallback=news&cat=38&ln=zh-cn&isTc=false&startAt=1&num=20&onDate=&endDate=&keywords=
     return new Promise((resolve, reject) => {
       get('https://content.aetoscg.asia/api/getNewsList.php', {
-        jsoncallback,
         isTc,
         cat,
         ln,
